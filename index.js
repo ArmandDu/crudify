@@ -9,10 +9,12 @@
 ** function
 */
 
-function Crudify(express, model) {
+function Crudify(express, model, options) {
   this.express = express;
   this.Model = model;
   this.router = express.Router();
+  if (options && options.middleware)
+    this.router.use(options.middleware);
   this.router.get('/', find)
             .get('/:id', findOne)
             .post('/', store)

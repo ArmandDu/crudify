@@ -6,6 +6,9 @@ A Minimalist CRUD Router for MEAN Stack.
 I made this package because I was done with duplicating the same code to every models I have.
 I also wanted to deploy a simple package to learn how to.
 
+This package won't probably be deployed to NPM since I don't think it will be mature enough for production use.
+If anyone wants to create an issue or give me tips/ideas to improve this piece of code, please do, I would love to learn.
+
 ## Installation
 
   npm install https://github.com/ArmandDu/crudify.git --save
@@ -40,6 +43,7 @@ Crudify().Router() returns an express Router object, you can add your own routes
 
 I don't know how to deal with the express Router system, so far I pass express as a parameter for my constructor but I don't know the best practice for that.
 
+I use middlewares to deal with validation and data formatting so far, waiting to find a better way to do it.
 
 ## Tests
 
