@@ -3,11 +3,12 @@ Crudify
 
 A Minimalist CRUD Router for MEAN Stack.
 
-I made this package because I was done with duplicating the same code to every models I have.
-I also wanted to deploy a simple package to learn how to.
+I made this package because I was usually duplicating it to most of the models I have.
+I also wanted to make a simple package to learn how to.
 
 This package won't probably be deployed to NPM since I don't think it will be mature enough for production use.
-If anyone wants to create an issue or give me tips/ideas to improve this piece of code, please do, I would love to learn.
+
+*If anyone wants to create an issue or give me tips/ideas to improve this code, please do, I would love to learn.*
 
 ## Installation
 
@@ -18,36 +19,37 @@ If anyone wants to create an issue or give me tips/ideas to improve this piece o
 ```
     var Crudify = require('crudify');
     var express = require('express');
+    var mongoose = require('mongoose');
 
     var app = express();
-    var Foo = require('./models/foo');
+    var Foo = mongoose.model('Foo');
 
-    // mongoose.connect...
+    mongoose.connect('mongodb://localhost/crudify-testdb');
 
     /*
     ** will generate
     **
     ** GET    /foos/      find all Foos
     ** GET    /foos/:id   find Foo by Id
-    ** POST   /foos       create a Foo
+    ** POST   /foos/       create a Foo
     ** PUT    /foos/:id   update a Foo
     ** DELETE /foos/:id   delete a Foo
     **
     */
     app.use('/foos', new Crudify(express, Foo).Router());
 
-    app.listen(8080);
+    app.listen();
 ```
 
 Crudify().Router() returns an express Router object, you can add your own routes on top of it.
 
-I don't know how to deal with the express Router system, so far I pass express as a parameter for my constructor but I don't know the best practice for that.
+To be dependance free, I pass express as a parameter for my constructor.
 
-I use middlewares to deal with validation and data formatting so far, waiting to find a better way to do it.
+I use middlewares and mongoose plugins to deal with validation and data formatting.
 
 ## Tests
 
-  Coming soon
+  `npm test`
 
 ## Contributing
 

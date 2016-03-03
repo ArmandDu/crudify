@@ -4,7 +4,8 @@
   "description": "Minimalist CRUD router for MEAN stack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha -- -R spec"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,16 @@
   "bugs": {
     "url": "https://github.com/ArmandDu/crudify/issues"
   },
-  "homepage": "https://github.com/ArmandDu/crudify#readme"
+  "homepage": "https://github.com/ArmandDu/crudify#readme",
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "istanbul": "^0.4.2",
+    "method-override": "^2.3.5",
+    "mocha": "^2.4.5",
+    "mocha-mongoose": "^1.1.1",
+    "mongoose": "^4.4.6",
+    "supertest": "^1.2.0"
+  }
 }
